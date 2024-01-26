@@ -198,43 +198,50 @@ app.post("/api/task/deleteTask",(req,res)=>{
     
 });
 
-app.post("/api/task/update",(req,res)=>{
-    const {taskId  ,title , description ,dueDate } = req.body;
 
-    const updatedtask = {
-        taskId:taskId,
-        title:title,
-        description:description,
-        dueDate:dueDate
-    }
+app.post("/api/task/update", async (req, res) => {
+    const { taskId, title, description, dueDate } = req.body;
 
     async function updateTask(task) {
-        const id = task.taskId;
-        await DocumentClient.send(new UpdateCommand({
-            TableName: TableName,
-            Key: {
-                id
-            },
-            UpdateExpression: "set #title = :t, #description = :des, #dueDate = :d",
-            ExpressionAttributeNames: {
-                "#title": "title",
-                "#description": "description",
-                "#dueDate": "dueDate",
-            },
-            ExpressionAttributeValues: {
-                ":t": task.title,
-                ":des": task.description,
-                ":d": task.dueDate,
-            },
-            ReturnValues: "ALL_NEW"
-        }));
-            res.status(200).json("Task Updated Successfully !")
+        const id = task.id;
+        try {
+            
+            const updateResponse = await DocumentClient.send(new UpdateCommand({
+                TableName: TableName,
+                Key: {
+                    taskId: id
+                },
+                UpdateExpression: "set #description = :s, #dueDate = :d ,#title = :t",
+                ExpressionAttributeNames: {
+                    "#description": "description",
+                    "#dueDate": "dueDate",
+                    "#title": "title",
+                },
+                ExpressionAttributeValues: {
+                    ":s": task.description,
+                    ":d": task.dueDate,
+                    ":t": task.title,
+                },
+                ReturnValues: "ALL_NEW"
+            }));
+
+            res.status(200).json("Task Updated Successfully !");
+        } catch (error) {
+            res.status(400).json(error);
+        }
     }
-    updateTask(updatedtask)
-    
 
+    const updatedTask = {
+        id: taskId,
+        title: title,
+        description: description,
+        dueDate: dueDate
+    };
 
-})
+    // Call the updateTask function
+    updateTask(updatedTask);
+});
+
 
 
 
