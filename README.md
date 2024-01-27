@@ -72,6 +72,8 @@ To set up the Devtown backend, follow these instructions:
     node index.js
     ```
 
+    ![Devtown Screenshot](./images/sone.png)
+
 ## JSON Web Tokens (JWT)
 
 Devtown uses JSON Web Tokens for secure authentication. JWT is a compact, URL-safe means of representing claims to be transferred between two parties. In this application, JWTs are used to authenticate users and authorize access to protected resources.
