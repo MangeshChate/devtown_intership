@@ -8,14 +8,14 @@ const { ScanCommand, PutCommand, DeleteCommand, GetCommand, UpdateCommand } = re
 const DocumentClient = require('./dynamodbClient');
 const cuid = require('cuid');
 const TableName = "task_management_table";
-
+require('dotenv').config();
 app.use(cors());
 
 app.use(express.json());
 
 
 //MONGO DB connection
-MONGO_URL = "mongodb+srv://mangesh:QYTLPQdNOFoTwxuz@cluster0.6hhshhc.mongodb.net/DevTownAuth?retryWrites=true&w=majority"
+MONGO_URL = process.env.MONGO_URL
 async function connectToMongoDB() {
     try {
         await mongoose.connect(MONGO_URL);
