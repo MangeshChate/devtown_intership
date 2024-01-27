@@ -72,7 +72,7 @@ To set up the Devtown backend, follow these instructions:
     node index.js
     ```
 
-    ![Screenshot](./images/sone.png)
+    ![Screenshot](images/sone.png)
 
 ## JSON Web Tokens (JWT)
 
