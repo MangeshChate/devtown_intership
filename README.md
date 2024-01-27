@@ -3,6 +3,12 @@
 Welcome to a simple and efficient task management application.
 (devtown)
 
+screen recording of project
+```bash
+https://www.awesomescreenshot.com/video/24409182?key=81c0bd6a1381dc260c500a72fda078fc
+```
+
+
 ## Installation
 
 ### Client
@@ -72,7 +78,7 @@ To set up the Devtown backend, follow these instructions:
     node index.js
     ```
 
-    ![Screenshot](images/sone.png)
+   
 
 ## JSON Web Tokens (JWT)
 
