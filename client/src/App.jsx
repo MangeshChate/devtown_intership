@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Register from './components/Register'
 import "rabbitcss";
-import {BrowserRouter as Router , Route , Routes} from "react-router-dom"
+import {BrowserRouter as Router , Route , Routes } from "react-router-dom"
 import Dashboard from './components/Dashboard';
 
 function App() {
+ 
   const [isAuthenticated, setAuthenticated] = useState(false);
-
   
   useEffect(() => {
     const storedUser = localStorage.getItem('user');

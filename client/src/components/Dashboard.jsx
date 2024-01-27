@@ -120,14 +120,15 @@ function Dashboard() {
 
     return (
         <div className='p-5'>
-            <div className='text-5xl font-bold'>Task <span className='text-blue-700 '>Management</span></div>
-            <div className="container mx-auto p-8 mt-5">
+            <div className='text-3xl lg:text-5xl  font-bold'>Task <span className='text-blue-700 '>Management</span></div>
+            <div className="container mx-auto lg:p-8 p-0 mt-5">
                 <div className='flex  justify-between items-center'>
-                <span className='text-3xl '>Welcome {user.username}</span>
+                <span className='text-xl lg:text-3xl '>Welcome {user.username}</span>
                 <span className='btn font-bold btn-danger  rounded-full'onClick={handleLogout} >logout</span>
                 </div>
                 <div className="mt-8">
-                    <table className="min-w-full  shadow-xl rounded-2xl ">
+                    <table className="min-w-full 
+                     shadow-xl rounded-2xl " style={{overflowX:"scroll" ,overflowY:"scroll"}}>
                         <thead className='bg-dark text-light'>
                             <tr>
 
@@ -144,15 +145,15 @@ function Dashboard() {
                                     <td className="border-b p-2">{row.title}</td>
                                     <td className="border-b p-2">{row.description}</td>
                                     <td className="border-b p-2">{row.dueDate}</td>
-                                    <td className="border-b p-2">
+                                    <td className="border-b p-2 flex">
                                         <button
-                                            className="text-blue-500  px-2 py-1 mr-2"
+                                            className="text-blue-500   mr-2"
                                             onClick={() => handleEdit(row.taskId)}
                                         >
                                             <Edit />
                                         </button>
                                         <button
-                                            className=" text-red-500 px-2 py-1 "
+                                            className=" text-red-500 "
                                             onClick={() => handleDelete(row.taskId)}
                                         >
                                             <Delete />
@@ -165,11 +166,11 @@ function Dashboard() {
 
                 </div>
             </div>
-            <div className='w-[80px] h-[80px] flex justify-center items-center cursor-pointer rounded-full fixed bottom-20 left-20 bg-blue-700 text-white p-5' onClick={() => setAddTask(true)}>
+            <div className='w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] flex justify-center items-center cursor-pointer rounded-full fixed lg:bottom-20 lg:left-20 bottom-10 left-10 bg-blue-700 text-white p-5' onClick={() => setAddTask(true)}>
                 <Add className='' fontSize="large" />
             </div>
             {addTask && (
-                <div className='p-2 w-[900px] h-[450px] bg-white shadow-2xl border rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <div className='p-2 w-[400px] lg:w-[900px] h-[450px] bg-white shadow-2xl border rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
 
                     <div className='text-3xl font-bold text-center mt-3'>Add<span className='text-blue-700 '> Task</span></div>
                     <Cancel className='absolute top-5 right-5 cursor-pointer text-red-500 ' fontSize='large' onClick={() => setAddTask(false)} />
@@ -184,7 +185,7 @@ function Dashboard() {
 
             )}
            {edit && selectedRow && (
-        <div className='p-2 w-[900px] h-[450px] bg-white shadow-2xl border rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <div className='p-2 w-[400px] lg:w-[900px] h-[450px] bg-white shadow-2xl border rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
           <div className='text-3xl font-bold text-center mt-3'>Edit<span className='text-blue-700 '> Task</span></div>
           <Cancel
             className='absolute top-5 right-5 cursor-pointer text-red-500 '

@@ -85,7 +85,8 @@ function Register() {
         try{
             const res = await axios.post("http://localhost:5500/api/login",{username ,password});
 
-            console.log(res.data)            
+            console.log(res.data)   
+            localStorage.setItem('user', JSON.stringify(res.data));         
             navigate('/dashboard', {state:{ user: res.data }});
         }catch(err){
             console.log(err)
@@ -97,18 +98,18 @@ function Register() {
 
     return (
         <div className='h-[100vh] bg-[#f5f5f5]'>
-            <div className='grid grid-cols-2 h-[100%]'>
-                <div className='flex justify-center flex-col items-center object-cover bg-i  bg-[#252525]'>
+            <div className='grid grid-cols-1 md:grid-col-1 sm:grid-cols-1 lg:grid-cols-2  h-[100%]'>
+                <div className='flex justify-center  flex-col items-center object-cover bg-i  bg-[#252525]'>
                     <div>
-                        <div className='text-7xl font-bold text-light'>Task <span className=' '>Management</span> </div>
-                        <div className='text-7xl text-blue-700 font-bold'>{login ? "Login" : "Registration"}</div>
+                        <div className='text-3xl lg:text-7xl font-bold text-light'>Task <span className=' '>Management</span> </div>
+                        <div className='text-3xl lg:text-7xl text-blue-700 font-bold'>{login ? "Login" : "Registration"}</div>
 
                     </div>
                 </div>
 
                 <div className='flex flex-col justify-center items-center'>
                     {login ? (
-                        <form onSubmit={handleLogin} className='flex flex-col justify-center items-center gap-3 w-[500px]  rounded-lg  p-5'>
+                        <form onSubmit={handleLogin} className='flex flex-col justify-center items-center gap-3 w-[300px] lg:w-[500px] h-[400px] lg:h-[500px] rounded-lg  p-5'>
                             <span className='text-3xl text-center w-full mb-6 font-bold'>Sign In</span>
                             <div className='w-full flex  flex-col gap-3'>
 
@@ -127,7 +128,7 @@ function Register() {
                     ) : (
 
 
-                        <form onSubmit={handleRegistration} className='flex flex-col justify-center items-center gap-3 w-[500px]  rounded-lg  p-5'>
+                        <form onSubmit={handleRegistration} className='flex flex-col justify-center items-center gap-3 w-[300px] lg:w-[500px] lg:h-[500px] h-[400px] rounded-lg  p-5'>
                             <span className='text-3xl text-center w-full mb-6 font-bold'>Sign Up</span>
                             <div className='w-full flex  flex-col gap-3'>
 
