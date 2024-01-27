@@ -1,6 +1,7 @@
 # Task Management Devtown
 
-Welcome to Devtown, a simple and efficient task management application. Manage your tasks effortlessly and stay organized with Devtown!
+Welcome to a simple and efficient task management application.
+(devtown)
 
 ## Installation
 
