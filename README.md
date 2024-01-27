@@ -11,13 +11,13 @@ To get started with the Devtown client, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/devtown-client.git
+    git clone https://github.com/MangeshChate/devtown_intership.git
     ```
 
 2. Navigate to the client directory:
 
     ```bash
-    cd devtown-client
+    cd client
     ```
 
 3. Install dependencies:
@@ -29,7 +29,7 @@ To get started with the Devtown client, follow these steps:
 4. Start the client:
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 ### Backend
@@ -39,13 +39,13 @@ To set up the Devtown backend, follow these instructions:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/devtown-backend.git
+    git clone https://github.com/MangeshChate/devtown_intership.git
     ```
 
 2. Navigate to the backend directory:
 
     ```bash
-    cd devtown-backend
+    cd backend
     ```
 
 3. Install dependencies:
@@ -68,7 +68,7 @@ To set up the Devtown backend, follow these instructions:
 5. Start the backend:
 
     ```bash
-    npm start
+    node index.js
     ```
 
 ## JSON Web Tokens (JWT)
