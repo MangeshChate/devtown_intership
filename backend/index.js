@@ -31,11 +31,12 @@ let refreshtokens = [];
 
 app.post("/api/refresh", (req, res) => {
     let refreshToken = req.body.token;
-
-    if (!refreshToken) return res.status(401).json("you are not authenticated ");
-    if (!refreshtokens.includes(refreshToken)) {
-        return res.status(403).json("refresh token is not valid ");
-    }
+        
+        if (!refreshToken) return res.status(401).json("you are not authenticated ");
+        if (!refreshtokens.includes(refreshToken)) {
+            return res.status(403).json("refresh token is not valid ");
+        }
+   
 
     jwt.verify(refreshToken, "myRefreshSecretKey", (err, user) => {
         err && console.log(err);
@@ -77,7 +78,7 @@ app.post("/api/register", async (req, res) => {
 
 //Genrating Tokens
 const genrateAccessToken = (user) => {
-    return jwt.sign({ id: user._id }, "mySecretKey", { expiresIn: "20s" })
+    return jwt.sign({ id: user._id }, "mySecretKey", { expiresIn: "5d" })
 }
 const genrateRefreshToken = (user) => {
     return jwt.sign({ id: user._id }, "myRefreshSecretKey");

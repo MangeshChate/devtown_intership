@@ -3,7 +3,10 @@ import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 import {useNavigate} from 'react-router-dom';
 
+
 function Register() {
+
+    
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -27,12 +30,14 @@ function Register() {
             accessToken:res.data.accessToken,
             refreshToken:res.data.refreshToken
     
-          })
+          });
+          console.log(res.data)
           return res.data
         }catch(err){
           console.log(err);
         }
       }
+      
       const axiosJWT = axios.create();
       axiosJWT.interceptors.request.use(
     

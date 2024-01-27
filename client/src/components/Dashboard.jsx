@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios"
+
 import { Add, Cancel, Delete, Edit } from "@mui/icons-material"
 
 
@@ -9,7 +10,8 @@ import { Add, Cancel, Delete, Edit } from "@mui/icons-material"
 function Dashboard() {
     const { state } = useLocation();
     const { user } = state || {};
-    // console.log(user);
+    const navigate = useNavigate();
+    
 
     const [rows, setRows] = useState([]);
     const [selectedRow, setSelectedRow] = useState({});
@@ -19,7 +21,7 @@ function Dashboard() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [dueDate, setDueDate] = useState('');
-
+    
 
     const handleEdit = (id) => {
         setEdit(true);
@@ -110,14 +112,20 @@ function Dashboard() {
 
 
 
-
+  const handleLogout = async () => {
+    localStorage.removeItem('user');
+    navigate('/');
+};
 
 
     return (
         <div className='p-5'>
             <div className='text-5xl font-bold'>Task <span className='text-blue-700 '>Management</span></div>
             <div className="container mx-auto p-8 mt-5">
+                <div className='flex  justify-between items-center'>
                 <span className='text-3xl '>Welcome {user.username}</span>
+                <span className='btn font-bold btn-danger  rounded-full'onClick={handleLogout} >logout</span>
+                </div>
                 <div className="mt-8">
                     <table className="min-w-full  shadow-xl rounded-2xl ">
                         <thead className='bg-dark text-light'>
