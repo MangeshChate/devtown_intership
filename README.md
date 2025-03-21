@@ -1,4 +1,4 @@
-# Task Management Devtown
+# Task Management Using AWS DynomoDB
 
 Welcome to a simple and efficient task management application.
 (devtown)
